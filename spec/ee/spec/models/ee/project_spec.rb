@@ -873,4 +873,17 @@ describe Project do
       expect(project.import_data.password).to eq('pass')
     end
   end
+
+  describe '#with_slack_application_disabled' do
+    it 'returns projects where Slack application is disabled' do
+      project1 = create(:empty_project)
+      project2 = create(:empty_project)
+      create(:gitlab_slack_application_service, project: project2)
+
+      projects = Project.with_slack_application_disabled
+
+      expect(projects).to include(project1)
+      expect(projects).not_to include(project2)
+    end
+  end
 end

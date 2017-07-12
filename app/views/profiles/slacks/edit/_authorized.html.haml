@@ -1,0 +1,17 @@
+= select_tag :projects, options_from_collection_for_select(@projects, :path_with_namespace, :name_with_namespace)
+
+= render 'projects/services/gitlab_slack_application/slack_button', project: @projects.first
+
+:javascript
+  var templateProjectPath = '#{@projects.first.path_with_namespace}';
+
+  $(function(){
+    $('select#projects').change(function(){
+        updateRedirectURL($(this).val());
+    });
+
+    function updateRedirectURL(projectPath){
+      var url = $('#slack-button').prop('href').replace(templateProjectPath, projectPath);
+      $('#slack-button').prop('href', url);
+    }
+  });

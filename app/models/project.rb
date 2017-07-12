@@ -350,6 +350,11 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def self.with_slack_application_disabled
+    joins('LEFT JOIN services ON services.project_id = projects.id AND services.type = \'GitlabSlackApplicationService\'')
+      .where('services.id IS NULL')
+  end
+
   scope :active, -> { joins(:issues, :notes, :merge_requests).order('issues.created_at, notes.created_at, merge_requests.created_at DESC') }
   scope :abandoned, -> { where('projects.last_activity_at < ?', 6.months.ago) }
 

@@ -36,6 +36,7 @@ resource :profile, only: [:show, :update] do
         put :resend_confirmation_instructions
       end
     end
+    resource :slack, only: [:edit]
     resources :chat_names, only: [:index, :new, :create, :destroy] do
       collection do
         delete :deny

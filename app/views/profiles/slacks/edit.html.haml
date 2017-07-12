@@ -1,0 +1,7 @@
+- if current_user
+  - if @projects.any?
+    = render 'profiles/slacks/edit/authorized'
+  - else
+    = render 'profiles/slacks/edit/no_projects'
+- else
+  = render 'profiles/slacks/edit/unauthorized'
