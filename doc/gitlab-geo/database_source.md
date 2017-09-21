@@ -42,7 +42,7 @@ recover. See below for more details.
 The following guide assumes that:
 
 - You are using PostgreSQL 9.6 or later which includes the
-  [`pg_basebackup` tool][pgback]. If you are using Omnibus it includes the required
+  [`pg_basebackup` tool][pgback] and improved [Foreign Data Wrapper][FDW] support. If you are using Omnibus it includes the required
   PostgreSQL version for Geo.
 - You have a primary server already set up (the GitLab server you are
   replicating from), and you have a new secondary server set up on the same OS
@@ -56,7 +56,7 @@ The following guide assumes that:
 
 1. SSH into your GitLab **primary** server and login as root:
 
-    ```
+    ```bash
     sudo -i
     ```
 
@@ -121,7 +121,7 @@ The following guide assumes that:
 
 1. Create the replication slot on the primary:
 
-     ```
+     ```bash
      $ sudo -u postgres psql -c "SELECT * FROM pg_create_physical_replication_slot('geo_secondary_my_domain');"
            slot_name             | xlog_position
         -------------------------+---------------
@@ -138,13 +138,13 @@ The following guide assumes that:
 
 1. SSH into your GitLab **secondary** server and login as root:
 
-    ```
+    ```bash
     sudo -i
     ```
 
 1. Test that the remote connection to the primary server works:
 
-    ```
+    ```bash
     sudo -u postgres psql -h 1.2.3.4 -U gitlab_replicator -d gitlabhq_production -W
     ```
 
@@ -179,7 +179,8 @@ The following guide assumes that:
 #### Enable tracking database on the secondary server
 
 Geo secondary nodes use a tracking database to keep track of replication status and recover
-automatically from some replication issues.
+automatically from some replication issues. This is a separate PostgreSQL instance running for each
+secondary node.
 
 It is added in GitLab 9.1, and since GitLab 10.0 it is required.
 
@@ -192,9 +193,12 @@ the clocks must be synchronized to within 60 seconds of each other.
    This can easily be done via any NTP-compatible daemon. For example,
    here are [instructions for setting up NTP with Ubuntu](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-1. Create `database_geo.yml` with the information of your secondary PostgreSQL
-   database.  Note that GitLab will set up another database instance separate
-   from the primary, since this is where the secondary will track its internal
+1. Install this new instance (on the same machine, or in a separate machine i
+   n a HA configuration). Use the same version as the other replicated database
+   for feature parity.
+
+1. Create `database_geo.yml` with the information of your additional PostgreSQL
+   database. This is where the secondary will track its internal
    state:
 
     ```
@@ -222,8 +226,22 @@ the clocks must be synchronized to within 60 seconds of each other.
 
 1. Set up the Geo tracking database:
 
-    ```
+    ```bash
     bundle exec rake geo:db:migrate
+    ```
+     
+1. Enable the [PostgreSQL FDW][FDW] extension:
+
+    ```bash
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE EXTENSION postgres_fdw;"
+    ```
+
+1. Configure the [PostgreSQL FDW][FDW] connection and credentials:
+
+    ```bash
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'localhost', port '5432', dbname 'gitlabhq_production');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE USER MAPPING FOR CURRENT_USER SERVER gitlab_secondary OPTIONS (user 'gitlab', password 'mydatabasepassword');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SCHEMA gitlab_secondary;"
     ```
 
 ### Step 3. Initiate the replication process
@@ -240,7 +258,7 @@ data before running `pg_basebackup`.
 
 1. SSH into your GitLab **secondary** server and login as root:
 
-    ```
+    ```bash
     sudo -i
     ```
 
@@ -291,7 +309,7 @@ data before running `pg_basebackup`.
 
 1. Run it with:
 
-    ```
+    ```bash
     bash /tmp/replica.sh
     ```
 
@@ -316,3 +334,4 @@ Read the [troubleshooting document](troubleshooting.md).
 
 [pgback]: http://www.postgresql.org/docs/9.6/static/app-pgbasebackup.html
 [reconfigure GitLab]: ../administration/restart_gitlab.md#omnibus-gitlab-reconfigure
+[FDW]: https://www.postgresql.org/docs/9.6/static/postgres-fdw.html
