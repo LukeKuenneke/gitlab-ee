@@ -37,6 +37,7 @@ module ExtractsPath
   #
   # Returns an Array where the first value is the tree-ish and the second is the
   # path
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def extract_ref(id)
     pair = ['', '']
 
@@ -104,6 +105,7 @@ module ExtractsPath
   #
   # Automatically renders `not_found!` if a valid tree path could not be
   # resolved (e.g., when a user inserts an invalid path or ref).
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def assign_ref_vars
     # assign allowed options
     allowed_options = ["filter_ref"]
@@ -132,6 +134,7 @@ module ExtractsPath
     render_404
   end
 
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def tree
     @tree ||= @repo.tree(@commit.id, @path)
   end
@@ -145,6 +148,7 @@ module ExtractsPath
     id
   end
 
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def ref_names
     return [] unless @project
 

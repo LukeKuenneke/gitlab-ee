@@ -2,6 +2,7 @@ module Gitlab
   module Ci
     module Charts
       module DailyInterval
+        # rubocop:disable Cop/ModuleWithInstanceVariables
         def grouped_count(query)
           query
             .group("DATE(#{::Ci::Pipeline.table_name}.created_at)")

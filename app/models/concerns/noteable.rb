@@ -46,6 +46,7 @@ module Noteable
     notes.inc_relations_for_view.grouped_diff_discussions(*args)
   end
 
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def resolvable_discussions
     @resolvable_discussions ||=
       if defined?(@discussions)

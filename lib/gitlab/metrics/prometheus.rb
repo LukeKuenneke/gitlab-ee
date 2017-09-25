@@ -13,6 +13,7 @@ module Gitlab
           ::File.writable?(multiprocess_files_dir)
       end
 
+      # rubocop:disable Cop/ModuleWithInstanceVariables
       def prometheus_metrics_enabled?
         return @prometheus_metrics_enabled if defined?(@prometheus_metrics_enabled)
 

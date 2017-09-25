@@ -12,6 +12,7 @@ module Gitlab
             end
           end
 
+          # rubocop:disable Cop/ModuleWithInstanceVariables
           def errors
             @validator.messages + descendants.flat_map(&:errors)
           end

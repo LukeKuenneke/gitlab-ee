@@ -2,6 +2,7 @@ module IssuesAction
   extend ActiveSupport::Concern
   include IssuableCollections
 
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def issues
     @label = issues_finder.labels.first
 

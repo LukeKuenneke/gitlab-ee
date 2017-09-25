@@ -24,6 +24,7 @@ module Gitlab
             end
           end
 
+          # rubocop:disable Cop/ModuleWithInstanceVariables
           def compose!(deps = nil)
             return unless valid?
 

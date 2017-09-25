@@ -43,6 +43,7 @@ module Mentionable
     self
   end
 
+  # rubocop:disable Cop/ModuleWithInstanceVariables
   def all_references(current_user = nil, extractor: nil)
     @extractors ||= {}
 

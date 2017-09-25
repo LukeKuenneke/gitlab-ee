@@ -14,6 +14,7 @@
 module Rugged
   class Repository
     module UseGitlabGitAttributes
+      # rubocop:disable Cop/ModuleWithInstanceVariables
       def fetch_attributes(name, *)
         @attributes ||= Gitlab::Git::Attributes.new(path)
         @attributes.attributes(name)

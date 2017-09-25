@@ -6,18 +6,18 @@ module API
         'git-upload-pack' => :ssh_upload_pack
       }.freeze
 
+      attr_reader :redirected_path
+
+      # rubocop:disable Cop/ModuleWithInstanceVariables
       def wiki?
         set_project unless defined?(@wiki)
         @wiki
       end
 
+      # rubocop:disable Cop/ModuleWithInstanceVariables
       def project
         set_project unless defined?(@project)
         @project
-      end
-
-      def redirected_path
-        @redirected_path
       end
 
       def ssh_authentication_abilities
@@ -57,6 +57,7 @@ module API
 
       private
 
+      # rubocop:disable Cop/ModuleWithInstanceVariables
       def set_project
         if params[:gl_repository]
           @project, @wiki = Gitlab::GlRepository.parse(params[:gl_repository])
