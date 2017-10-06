@@ -229,19 +229,28 @@ the clocks must be synchronized to within 60 seconds of each other.
     ```bash
     bundle exec rake geo:db:migrate
     ```
-     
+
 1. Enable the [PostgreSQL FDW][FDW] extension:
 
     ```bash
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE EXTENSION postgres_fdw;"
     ```
 
+1. Make sure your the gitlab database user has a password defined
+
+    You need to change this on the primary node's machine, as you can't make changes to the replicated database
+
+    ```bash
+    $ sudo -u postgres psql -d template1 -c "CREATE USER gitlab WITH PASSWORD 'mydatabasepassword';"
+    ```
+
 1. Configure the [PostgreSQL FDW][FDW] connection and credentials:
 
     ```bash
-    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host 'localhost', port '5432', dbname 'gitlabhq_production');"
-    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE USER MAPPING FOR CURRENT_USER SERVER gitlab_secondary OPTIONS (user 'gitlab', password 'mydatabasepassword');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '127.0.0.1', port '5432', dbname 'gitlabhq_production');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE USER MAPPING FOR gitlab_geo SERVER gitlab_secondary OPTIONS (user 'gitlab', password 'mydatabasepassword');"
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SCHEMA gitlab_secondary;"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "GRANT USAGE ON FOREIGN SERVER gitlab_secondary TO gitlab_geo;"
     ```
 
 ### Step 3. Initiate the replication process
