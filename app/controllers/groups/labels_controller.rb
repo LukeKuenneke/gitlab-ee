@@ -32,7 +32,7 @@ class Groups::LabelsController < Groups::ApplicationController
 
     respond_to do |format|
       format.html do
-        if @label.valid?
+        if @label.persisted?
           redirect_to group_labels_path(@group)
         else
           render :new
