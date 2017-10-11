@@ -25,15 +25,7 @@ class Groups::GroupMembersController < Groups::ApplicationController
   end
 
   def update
-    @group_member = @group.group_members.find(params[:id])
-
-    return render_403 unless can?(current_user, :update_group_member, @group_member)
-
-    old_access_level = @group_member.human_access
-
-    if @group_member.update_attributes(member_params)
-      log_audit_event(@group_member, action: :update, old_access_level: old_access_level)
-    end
+    Members::UpdateService.new(@group, current_user, member_params).execute
   end
 
   def resend_invite

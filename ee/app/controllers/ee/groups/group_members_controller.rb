@@ -2,13 +2,10 @@ module EE
   module Groups
     module GroupMembersController
       def override
-        @group_member = @group.group_members.find(params[:id])
+        result = Members::UpdateService.new(@group, current_user, override_params)
+          .execute(permission: :override)
 
-        return render_403 unless can?(current_user, :override_group_member, @group_member)
-
-        if @group_member.update_attributes(override_params)
-          log_audit_event(@group_member, action: :override)
-
+        if result[:status] == :success
           respond_to do |format|
             format.js { head :ok }
           end

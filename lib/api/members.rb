@@ -84,12 +84,13 @@ module API
           source = find_source(source_type, params.delete(:id))
           authorize_admin_source!(source_type, source)
 
-          member = source.members.find_by!(user_id: params.delete(:user_id))
+          result = Members::UpdateService.new(source, current_user, declared_params(include_missing: false))
+            .execute
 
-          if member.update_attributes(declared_params(include_missing: false))
-            present member.user, with: Entities::Member, member: member
+          if result[:status] == :success
+            present result[:member].user, with: Entities::Member, member: result[:member]
           else
-            render_validation_error!(member)
+            render_validation_error!(result[:member])
           end
         end
 

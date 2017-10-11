@@ -1,16 +1,6 @@
 module Members
-  class DestroyService < BaseService
-    include MembersHelper
-
-    attr_accessor :source
-
+  class DestroyService < Members::BaseService
     ALLOWED_SCOPES = %i[members requesters all].freeze
-
-    def initialize(source, current_user, params = {})
-      @source = source
-      @current_user = current_user
-      @params = params
-    end
 
     def execute(scope = :members)
       raise "scope :#{scope} is not allowed!" unless ALLOWED_SCOPES.include?(scope)
@@ -21,8 +11,10 @@ module Members
 
       AuthorizedDestroyService.new(member, current_user).execute
 
-      AuditEventService.new(@current_user, @source, action: :destroy)
-        .for_member(member).security_event
+      unless member.request?
+        AuditEventService.new(current_user, source, action: :destroy)
+          .for_member(member).security_event
+      end
 
       member
     end

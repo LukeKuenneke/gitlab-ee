@@ -1,19 +1,14 @@
 module Members
-  class ApproveAccessRequestService < BaseService
+  class ApproveAccessRequestService < Members::BaseService
     include MembersHelper
 
-    attr_accessor :source
-
-    # source - The source object that respond to `#requesters` (i.g. project or group)
-    # current_user - The user that performs the access request approval
     # params - A hash of parameters
     #   :user_id - User ID used to retrieve the access requester
     #   :id - Member ID used to retrieve the access requester
     #   :access_level - Optional access level set when the request is accepted
     def initialize(source, current_user, params = {})
-      @source = source
-      @current_user = current_user
-      @params = params.slice(:user_id, :id, :access_level)
+      super
+      params.slice!(:user_id, :id, :access_level)
     end
 
     # opts - A hash of options
@@ -26,6 +21,12 @@ module Members
 
       access_requester.access_level = params[:access_level] if params[:access_level]
       access_requester.accept_request
+
+      # Don't log this event in the case of a mass-approval, e.g. LDAP group-sync
+      if current_user
+        AuditEventService.new(current_user, source, action: :create)
+          .for_member(access_requester).security_event
+      end
 
       access_requester
     end

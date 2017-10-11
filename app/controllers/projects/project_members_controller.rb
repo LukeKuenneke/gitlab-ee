@@ -26,15 +26,7 @@ class Projects::ProjectMembersController < Projects::ApplicationController
   end
 
   def update
-    @project_member = @project.project_members.find(params[:id])
-
-    return render_403 unless can?(current_user, :update_project_member, @project_member)
-
-    old_access_level = @project_member.human_access
-
-    if @project_member.update_attributes(member_params)
-      log_audit_event(@project_member, action: :update, old_access_level: old_access_level)
-    end
+    Members::UpdateService.new(@project, current_user, member_params).execute
   end
 
   def resend_invite

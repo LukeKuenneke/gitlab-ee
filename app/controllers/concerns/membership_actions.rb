@@ -36,9 +36,7 @@ module MembershipActions
   end
 
   def approve_access_request
-    member = Members::ApproveAccessRequestService.new(membershipable, current_user, params).execute
-
-    log_audit_event(member, action: :create)
+    Members::ApproveAccessRequestService.new(membershipable, current_user, params).execute
 
     redirect_to members_page_url
   end
@@ -53,8 +51,6 @@ module MembershipActions
       else
         "You left the \"#{membershipable.human_name}\" #{source_type}."
       end
-
-    log_audit_event(member, action: :destroy) unless member.request?
 
     respond_to do |format|
       format.html do
