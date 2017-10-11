@@ -4,7 +4,9 @@ class LabelsFinder < UnionFinder
     @params = params
   end
 
-  def execute(skip_authorization: false)
+  def execute(skip_authorization: false, only_group_labels: false)
+    return group.labels if only_group_labels
+
     @skip_authorization = skip_authorization
     items = find_union(label_ids, Label) || Label.none
     items = with_title(items)
