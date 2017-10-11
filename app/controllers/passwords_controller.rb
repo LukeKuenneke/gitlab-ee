@@ -1,9 +1,9 @@
 class PasswordsController < Devise::PasswordsController
+  prepend EE::PasswordsController
+
   before_action :resource_from_email, only: [:create]
   before_action :prevent_ldap_reset, only: [:create]
   before_action :throttle_reset,      only: [:create]
-
-  prepend EE::PasswordsController
 
   def edit
     super
