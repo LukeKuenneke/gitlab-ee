@@ -1,4 +1,12 @@
 .form-group
+  = f.check_box :commit_author_check, class: "pull-left", disabled: !can_change_commit_author_check?(f.object)
+  .prepend-left-20
+    = f.label :commit_author_check, class: "label-light append-bottom-0" do
+      Author restriction
+    %p.light.append-bottom-0
+      = commit_author_check_description(f.object)
+
+.form-group
   = f.check_box :reject_unsigned_commits, class: "pull-left", disabled: !can_change_reject_unsigned_commits?(f.object)
   .prepend-left-20
     = f.label :reject_unsigned_commits, class: "label-light append-bottom-0" do

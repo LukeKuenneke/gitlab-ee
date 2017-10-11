@@ -20,6 +20,11 @@ module EE
         !PushRule.global&.reject_unsigned_commits
       end
 
+      with_scope :global
+      condition(:commit_author_check_disabled_globally) do
+        !PushRule.global&.commit_author_check
+      end
+
       rule { admin }.enable :change_repository_storage
 
       rule { support_bot }.enable :guest_access
@@ -77,6 +82,8 @@ module EE
       rule { ~can?(:push_code) }.prevent :push_code_to_protected_branches
 
       rule { admin | (reject_unsigned_commits_disabled_globally & can?(:master_access)) }.enable :change_reject_unsigned_commits
+
+      rule { admin | (commit_author_check_disabled_globally & can?(:master_access)) }.enable :change_commit_author_check
     end
   end
 end
