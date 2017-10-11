@@ -4,6 +4,8 @@ class GroupMilestone < GlobalMilestone
   attr_accessor :group
 
   def self.build_collection(group, projects, params)
+    return [] if params[:only_group_milestones]
+
     super(projects, params).each do |milestone|
       milestone.group = group
     end
