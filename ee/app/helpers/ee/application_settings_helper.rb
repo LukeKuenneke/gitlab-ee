@@ -30,7 +30,8 @@ module EE
       [
         :mirror_max_capacity,
         :mirror_max_delay,
-        :mirror_capacity_threshold
+        :mirror_capacity_threshold,
+        :mirror_max_retry_count
       ]
     end
   end

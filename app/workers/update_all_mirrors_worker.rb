@@ -1,6 +1,7 @@
 class UpdateAllMirrorsWorker
   include Sidekiq::Worker
   include CronjobQueue
+  include Gitlab::CurrentSettings
 
   LEASE_TIMEOUT = 5.minutes
   LEASE_KEY = 'update_all_mirrors'.freeze
@@ -9,9 +10,19 @@ class UpdateAllMirrorsWorker
     lease_uuid = try_obtain_lease
     return unless lease_uuid
 
+    hard_fail_mirrors!
+
     schedule_mirrors!
 
     cancel_lease(lease_uuid)
+  end
+
+  def hard_fail_mirrors!
+    mirrors_to_halt = Project.mirror.joins(:mirror_data)
+      .with_import_status(:failed)
+      .where('retry_count > ?' current_application_settings.max_mirror_retry_count)
+
+    mirrors_to_halt.each(&:import_hard_fail)
   end
 
   def schedule_mirrors!

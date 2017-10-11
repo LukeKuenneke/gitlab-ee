@@ -298,6 +298,7 @@ Settings.gitlab['session_expire_delay'] ||= 10080
 Settings.gitlab['mirror_max_delay'] ||= 300
 Settings.gitlab['mirror_max_capacity'] ||= 30
 Settings.gitlab['mirror_capacity_threshold'] ||= 15
+Settings.gitlab['mirror_max_retry_count'] ||= 14
 Settings.gitlab.default_projects_features['issues']             = true if Settings.gitlab.default_projects_features['issues'].nil?
 Settings.gitlab.default_projects_features['merge_requests']     = true if Settings.gitlab.default_projects_features['merge_requests'].nil?
 Settings.gitlab.default_projects_features['wiki']               = true if Settings.gitlab.default_projects_features['wiki'].nil?

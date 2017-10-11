@@ -1,14 +1,25 @@
+- last_update_at = @project.mirror_last_update_at
+
 - case @project.mirror_last_update_status
 - when :success
   Updated #{time_ago_with_tooltip(@project.mirror_last_successful_update_at)}.
+- when :hard_failed
+  - if can?(current_user, :admin_project, @project)
+    = link_to project_mirror_path(@project) do
+      = icon("exclamation-triangle")
+  - else
+    = icon("exclamation-triangle")
+
+  The repository failed to update too many times and all repository
+  mirroring has been halted, until further action is taken.
+  The repository was last updated #{time_ago_with_tooltip(last_update_at)}.
 - when :failed
   - if can?(current_user, :admin_project, @project)
     = link_to project_mirror_path(@project) do
       = icon("exclamation-triangle")
-      Failed to update #{time_ago_with_tooltip(@project.mirror_last_update_at)}.
   - else
     = icon("exclamation-triangle")
-    Failed to update #{time_ago_with_tooltip(@project.mirror_last_update_at)}.
+  Failed to update #{time_ago_with_tooltip(last_update_at)}.
 
   - if @project.mirror_ever_updated_successfully?
     Last successful update #{time_ago_with_tooltip(@project.mirror_last_successful_update_at)}.

@@ -26,6 +26,10 @@ module EE
                 presence: true,
                 numericality: { allow_nil: true, only_integer: true, greater_than: 0 }
 
+      validates :mirror_max_retry_count,
+                presence: true,
+                numericality: { only_integer: true, greater_than: 0 }
+
       validate :mirror_capacity_threshold_less_than
     end
 
@@ -40,6 +44,7 @@ module EE
           mirror_max_delay: Settings.gitlab['mirror_max_delay'],
           mirror_max_capacity: Settings.gitlab['mirror_max_capacity'],
           mirror_capacity_threshold: Settings.gitlab['mirror_capacity_threshold'],
+          mirror_max_retry_count: Settings.gitlab['mirror_max_retry_count'],
           allow_group_owners_to_manage_ldap: true
         )
       end

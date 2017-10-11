@@ -22,3 +22,10 @@
         = f.number_field :mirror_capacity_threshold, class: 'form-control', min: 0
         %span.help-block#mirror_capacity_threshold
         Minimum capacity to be available before we schedule more mirrors preemptively.
+    .form-group
+      = f.label :mirror_max_retry_count, class: 'control-label col-sm-2' do
+        Maximum retry count
+      .col-sm-10
+        = f.number_field :mirror_max_retry_count, class: 'form-control', min: 1
+        %span.help-block#mirror_max_retry_count
+        Maximum number of retries a mirror is allowed to have.

@@ -5,6 +5,16 @@ module EE
 
       included do
         state_machine :import_status, initial: :none do
+          event :import_hard_fail do
+            transition failed: :hard_failed
+          end
+
+          event :import_resume do
+            transition hard_failed: :scheduled
+          end
+
+          state :hard_failed
+
           before_transition [:none, :finished, :failed] => :scheduled do |project, _|
             project.mirror_data&.last_update_scheduled_at = Time.now
           end
@@ -52,6 +62,10 @@ module EE
                 ElasticCommitIndexerWorker.perform_async(project.id, last_indexed_commit)
               end
             end
+          end
+
+          before_transition hard_failed: :scheduled do |project, _|
+            project.force_import_job! if project.mirror?
           end
 
           after_transition [:finished, :failed] => [:scheduled, :started] do |project, _|

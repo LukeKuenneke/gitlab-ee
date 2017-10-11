@@ -19,6 +19,10 @@ module EE
       after_update :remove_mirror_repository_reference,
         if: ->(project) { project.mirror? && project.import_url_updated? }
 
+      after_save :resume_mirroring, if: ->(project) do
+        project.mirror? && project.mirror_hard_failed? && project.import_url_changed?
+      end
+
       belongs_to :mirror_user, foreign_key: 'mirror_user_id', class_name: 'User'
 
       has_one :mirror_data, autosave: true, class_name: 'ProjectMirrorData'
@@ -112,8 +116,10 @@ module EE
     def mirror_last_update_status
       return unless mirror_updated?
 
-      if self.mirror_last_update_at == self.mirror_last_successful_update_at
-        :success
+      return :success if self.mirror_last_update_at == self.mirror_last_successful_update_at
+
+      if self.mirror_data.retry_count > current_application_settings.mirror_max_retry_count
+        :hard_failed
       else
         :failed
       end
@@ -125,6 +131,14 @@ module EE
 
     def mirror_last_update_failed?
       mirror_last_update_status == :failed
+    end
+
+    def mirror_hard_failed?
+      mirror_last_update_status == :hard_failed
+    end
+
+    def show_import_error?
+      mirror_last_update_failed? || mirror_hard_failed?
     end
 
     def mirror_ever_updated_successfully?
@@ -482,6 +496,10 @@ module EE
       else
         globally_available
       end
+    end
+
+    def resume_mirroring
+      import_resume
     end
 
     def destroy_mirror_data
