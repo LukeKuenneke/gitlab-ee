@@ -74,6 +74,14 @@ module Gitlab
       GeoNode.where(host: host, port: port).exists?
     end
 
+    def self.fdw?
+      true
+    end
+
+    def self.fdw_schema
+      'app' # TODO should be 'gitlab_secondary'
+    end
+
     def self.repository_sync_job
       Sidekiq::Cron::Job.find('geo_repository_sync_worker')
     end

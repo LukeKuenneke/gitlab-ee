@@ -152,14 +152,21 @@ class GeoNode < ActiveRecord::Base
     registry_project_ids = project_registries.pluck(:project_id)
     return projects if registry_project_ids.empty?
 
-    joined_relation = projects.joins(<<~SQL)
-      LEFT OUTER JOIN
-      (VALUES #{registry_project_ids.map { |id| "(#{id}, 't')" }.join(',')})
-      project_registry(project_id, registry_present)
-      ON projects.id = project_registry.project_id
-    SQL
-
-    joined_relation.where(project_registry: { registry_present: [nil, false] })
+    if Gitlab::Geo.fdw?
+      sub_query = Geo::ProjectRegistry
+                    .select(1)
+                    .where(Geo::ProjectRegistry.arel_table[:project_id]
+                             .eq(Project.geo_fdw.arel_table[:id]))
+      Project.geo_fdw.where('NOT EXISTS (?)', sub_query)
+    else
+      joined_relation = projects.joins(<<~SQL)
+        LEFT OUTER JOIN
+        (VALUES #{registry_project_ids.map { |id| "(#{id}, 't')" }.join(',')})
+        project_registry(project_id, registry_present)
+        ON projects.id = project_registry.project_id
+      SQL
+      joined_relation.where(project_registry: { registry_present: [nil, false] })
+    end
   end
 
   def uploads
