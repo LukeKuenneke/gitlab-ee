@@ -875,9 +875,10 @@ describe Project do
   end
 
   describe '#with_slack_application_disabled' do
+    let(:project1) { create(:project) }
+    let(:project2) { create(:project) }
+
     it 'returns projects where Slack application is disabled' do
-      project1 = create(:empty_project)
-      project2 = create(:empty_project)
       create(:gitlab_slack_application_service, project: project2)
 
       projects = Project.with_slack_application_disabled
