@@ -23,6 +23,14 @@
       userAvatarLink,
       timeagoTooltip,
     },
+    methods: {
+      deleteEpic() {
+        if (confirm('Epic will be removed! Are you sure?')) {
+          // TODO: Delete Epic
+          console.log('deleting epic')
+        }
+      },
+    },
   };
 </script>
 
@@ -49,5 +57,11 @@
         </span>
       </user-avatar-link>
     </strong>
+    <button
+      class="btn btn-close pull-right"
+      @click="deleteEpic"
+    >
+      Delete epic
+    </button>
   </div>
 </template>
