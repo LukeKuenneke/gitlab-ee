@@ -15,6 +15,11 @@
         type: String,
         required: true,
       },
+      canDelete: {
+        type: Boolean,
+        required: false,
+        default: false,
+      }
     },
     directives: {
       tooltip,
@@ -58,6 +63,7 @@
       </user-avatar-link>
     </strong>
     <button
+      v-if="canDelete"
       class="btn btn-close pull-right"
       @click="deleteEpic"
     >
