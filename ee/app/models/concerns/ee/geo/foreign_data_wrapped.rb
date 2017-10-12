@@ -14,7 +14,8 @@ module EE
             table_name
           end
 
-          instance.establish_connection Rails.configuration.geo_database
+          instance.establish_connection Rails.configuration.geo_database.merge(schema_search_path: ::Gitlab::Geo.fdw_schema)
+          instance.connection # To effectively establish the connection
 
           instance
         end
