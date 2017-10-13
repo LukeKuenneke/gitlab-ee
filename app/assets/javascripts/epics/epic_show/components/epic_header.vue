@@ -19,7 +19,7 @@
         type: Boolean,
         required: false,
         default: false,
-      }
+      },
     },
     directives: {
       tooltip,
@@ -30,9 +30,9 @@
     },
     methods: {
       deleteEpic() {
-        if (confirm('Epic will be removed! Are you sure?')) {
+        if (confirm('Epic will be removed! Are you sure?')) { // eslint-disable-line no-alert
           // TODO: Delete Epic
-          console.log('deleting epic')
+          console.log('deleting epic');
         }
       },
     },
@@ -64,7 +64,7 @@
     </strong>
     <button
       v-if="canDelete"
-      class="btn btn-close pull-right"
+      class="btn btn-red-outline pull-right"
       @click="deleteEpic"
     >
       Delete epic

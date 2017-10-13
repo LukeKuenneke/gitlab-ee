@@ -19,7 +19,7 @@
       this.created = (new Date()).toISOString();
 
       this.canUpdate = true;
-      this.canDestroy = false;
+      this.canDestroy = true;
       this.endpoint = '/gitlab-org/gitlab-ce/issues/1';
       this.issuableRef = '';
       this.initialTitleHtml = '';
@@ -43,6 +43,7 @@
     <epic-header
       :author="author"
       :created="created"
+      :can-delete="canDestroy"
     />
     <div class="issuable-details detail-page-description content-block">
       <issuable-app
