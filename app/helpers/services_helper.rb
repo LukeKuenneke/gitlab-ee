@@ -27,5 +27,9 @@ module ServicesHelper
     "#{event}_events"
   end
 
+  def add_to_slack_link(project, slack_app_id)
+    "https://slack.com/oauth/authorize?scope=commands&client_id=#{slack_app_id}&redirect_uri=#{slack_redirect_uri(project)}"
+  end
+
   extend self
 end

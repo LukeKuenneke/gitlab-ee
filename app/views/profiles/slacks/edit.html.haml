@@ -1,7 +1,5 @@
-- if current_user
-  - if @projects.any?
-    = render 'profiles/slacks/edit/authorized'
-  - else
-    = render 'profiles/slacks/edit/no_projects'
-- else
-  = render 'profiles/slacks/edit/unauthorized'
+= webpack_bundle_tag 'add_gitlab_slack_application'
+
+%script#js-add-gitlab-slack-application-entry-data{ type: "application/json" }
+  = { projects: @projects, sign_in_path: new_session_path(:user, redirect_to_referer: 'yes'), is_signed_in: current_user.present?, add_to_slack_link_profile_slack_path: add_to_slack_link_profile_slack_path }.to_json.html_safe
+#js-add-gitlab-slack-application-entry-point
