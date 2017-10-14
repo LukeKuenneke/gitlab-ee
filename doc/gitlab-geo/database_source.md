@@ -42,8 +42,8 @@ recover. See below for more details.
 The following guide assumes that:
 
 - You are using PostgreSQL 9.6 or later which includes the
-  [`pg_basebackup` tool][pgback] and improved [Foreign Data Wrapper][FDW] support. If you are using Omnibus it includes the required
-  PostgreSQL version for Geo.
+  [`pg_basebackup` tool][pgback] and improved [Foreign Data Wrapper][FDW] support. 
+  If you are using Omnibus it includes the required PostgreSQL version for Geo.
 - You have a primary server already set up (the GitLab server you are
   replicating from), and you have a new secondary server set up on the same OS
   and PostgreSQL version. Also make sure the GitLab version is the same on all nodes.
@@ -230,13 +230,13 @@ the clocks must be synchronized to within 60 seconds of each other.
     bundle exec rake geo:db:migrate
     ```
 
-1. Enable the [PostgreSQL FDW][FDW] extension:
+1. Enable the [PostgreSQL FDW][FDW] extension on the Geo tracking database:
 
     ```bash
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE EXTENSION postgres_fdw;"
     ```
 
-1. Make sure your the gitlab database user has a password defined
+1. Make sure your the `gitlab` database user has a password defined
 
     You need to change this on the primary node's machine, as you can't make changes to the replicated database
 
@@ -247,7 +247,7 @@ the clocks must be synchronized to within 60 seconds of each other.
 1. Configure the [PostgreSQL FDW][FDW] connection and credentials:
 
     ```bash
-    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '127.0.0.1', port '5432', dbname 'gitlabhq_production');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '5.6.7.8', port '5432', dbname 'gitlabhq_production');"
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE USER MAPPING FOR gitlab_geo SERVER gitlab_secondary OPTIONS (user 'gitlab', password 'mydatabasepassword');"
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SCHEMA gitlab_secondary;"
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "GRANT USAGE ON FOREIGN SERVER gitlab_secondary TO gitlab_geo;"

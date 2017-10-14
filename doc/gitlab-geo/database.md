@@ -41,8 +41,8 @@ recover. See below for more details.
 The following guide assumes that:
 
 - You are using PostgreSQL 9.6 or later which includes the
-  [`pg_basebackup` tool][pgback]. If you are using Omnibus it includes the required
-  PostgreSQL version for Geo.
+  [`pg_basebackup` tool][pgback] and improved [Foreign Data Wrapper][FDW] support. 
+  If you are using Omnibus it includes the required PostgreSQL version for Geo.
 - You have a primary server already set up (the GitLab server you are
   replicating from), running Omnibus' PostgreSQL (or equivalent version), and you
   have a new secondary server set up on the same OS and PostgreSQL version. Also
@@ -56,32 +56,36 @@ The following guide assumes that:
 
 1. SSH into your GitLab **primary** server and login as root:
 
-    ```
+    ```bash
     sudo -i
     ```
 
 1. Omnibus GitLab has already a replication user called `gitlab_replicator`.
-   You must set its password manually. Replace `thepassword` with a strong
+   You must convert the password to PostgreSQL MD5 hash first. Replace `thepassword` with a strong
    password:
 
     ```bash
-    sudo -u gitlab-psql /opt/gitlab/embedded/bin/psql -h /var/opt/gitlab/postgresql \
-         -d template1 \
-         -c "ALTER USER gitlab_replicator WITH ENCRYPTED PASSWORD 'thepassword'"
+    gitlab-rake postgresql_md5_hash USERNAME=gitlab_replicator PASSWORD=thepassword
     ```
 
-1. Edit `/etc/gitlab/gitlab.rb` and add the following. Note that GitLab 9.1 added
-   the `geo_primary_role` configuration variable:
+1. Edit `/etc/gitlab/gitlab.rb` and add the following:
 
     ```ruby
-    geo_primary_role['enable'] = true
     postgresql['listen_address'] = "1.2.3.4"
     postgresql['trust_auth_cidr_addresses'] = ['127.0.0.1/32','1.2.3.4/32']
     postgresql['md5_auth_cidr_addresses'] = ['5.6.7.8/32']
-    # New for 9.4: Set this to be the number of Geo secondary nodes you have
-    postgresql['max_replication_slots'] = 1
     # postgresql['max_wal_senders'] = 10
     # postgresql['wal_keep_segments'] = 10
+    # postgresql['sql_replication_user'] = 'gitlab_replicator'
+
+    # New for 9.1: enable this on Primary node
+    geo_primary_role['enable'] = true
+
+    # New for 9.4: Set this to be the number of Geo secondary nodes you have
+    postgresql['max_replication_slots'] = 1
+
+    # New for 10.2: Define / update replication password from here
+    postgresql['sql_replication_password'] = 'insert the generated md5 hash here'
     ```
 
     Where `1.2.3.4` is the IP address of the primary server, and `5.6.7.8`
@@ -220,6 +224,16 @@ the clocks must be synchronized to within 60 seconds of each other.
     ```
 
 1. [Reconfigure GitLab][] for the changes to take effect.
+
+1. Configure the [PostgreSQL FDW][FDW] connection and credentials:
+
+    ```bash
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '5.6.7.8', port '5432', dbname 'gitlabhq_production');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE USER MAPPING FOR gitlab_geo SERVER gitlab_secondary OPTIONS (user 'gitlab', password 'mydatabasepassword');"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SCHEMA gitlab_secondary;"
+    $ sudo -u postgres psql -d gitlabhq_geo_production -c "GRANT USAGE ON FOREIGN SERVER gitlab_secondary TO gitlab_geo;"
+    ```
+
 1. Continue to [initiate the replication process](#step-3-initiate-the-replication-process).
 
 ### Step 3. Initiate the replication process
