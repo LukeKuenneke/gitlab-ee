@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-19 18:30-0400\n"
+"PO-Revision-Date: 2017-10-19 18:49-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -179,34 +179,34 @@ msgid "AutoDevOps|Learn more in the %{link_to_documentation}"
 msgstr "Подробнее по ссылке %{link_to_documentation}"
 
 msgid "Billing"
-msgstr ""
+msgstr "Тариф"
 
 msgid "BillingPlans|%{group_name} is currently on the %{plan_link} plan."
-msgstr ""
+msgstr "%{group_name} использует тарифный план %{plan_link}."
 
 msgid "BillingPlans|Automatic downgrade and upgrade to some plans is currently not available."
-msgstr ""
+msgstr "Автоматическое повышение или понижение недоступно для некоторых тарифных планов в настоящее время."
 
 msgid "BillingPlans|Current plan"
-msgstr ""
+msgstr "Текущий тарифный план"
 
 msgid "BillingPlans|Customer Support"
-msgstr ""
+msgstr "Поддержка Клиентов"
 
 msgid "BillingPlans|Downgrade"
 msgstr ""
 
 msgid "BillingPlans|Learn more about each plan by reading our %{faq_link}."
-msgstr ""
+msgstr "Узнайте больше о каждом тарифном плане прочитав наш %{faq_link}."
 
 msgid "BillingPlans|Manage plan"
 msgstr ""
 
 msgid "BillingPlans|Please contact %{customer_support_link} in that case."
-msgstr ""
+msgstr "Пожалуйста, в этом случае обратитесь в %{customer_support_link}."
 
 msgid "BillingPlans|See all %{plan_name} features"
-msgstr ""
+msgstr "Посмотреть возможности %{plan_name} полностью"
 
 msgid "BillingPlans|This group uses the plan associated with its parent group."
 msgstr ""
@@ -218,7 +218,7 @@ msgid "BillingPlans|Upgrade"
 msgstr ""
 
 msgid "BillingPlans|You are currently on the %{plan_link} plan."
-msgstr ""
+msgstr "В настоящее время вы используете тарифный план %{plan_link}."
 
 msgid "BillingPlans|frequently asked questions"
 msgstr "Часто задаваемые вопросы"
