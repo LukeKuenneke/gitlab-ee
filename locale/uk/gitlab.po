@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-19 14:12-0400\n"
+"PO-Revision-Date: 2017-10-19 14:41-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -554,31 +554,31 @@ msgid "ClusterIntegration|Toggle Cluster"
 msgstr ""
 
 msgid "ClusterIntegration|Read our %{link_to_help_page} on cluster integration."
-msgstr ""
+msgstr "Прочитайте нашу документацію %{link_to_help_page} по інтеграції із кластером."
 
 msgid "ClusterIntegration|With a cluster associated to this project, you can use review apps, deploy your applications, run your pipelines, and much more in an easy way."
-msgstr ""
+msgstr "За допомогою підключеного до цього проекту кластера, ви можете використовувати Review Apps, розгортати ваші проекти, запускати конвеєри збірки та багато іншого."
 
 msgid "ClusterIntegration|Your account must have %{link_to_container_engine}"
-msgstr ""
+msgstr "Ваш обліковий запис повинен мати %{link_to_container_engine}"
 
 msgid "ClusterIntegration|Zone"
-msgstr ""
+msgstr "Зона"
 
 msgid "ClusterIntegration|access to Google Container Engine"
-msgstr ""
+msgstr "доступ до Google Container Engine"
 
 msgid "ClusterIntegration|cluster"
 msgstr "кластер"
 
 msgid "ClusterIntegration|help page"
-msgstr ""
+msgstr "сторінка допомоги"
 
 msgid "ClusterIntegration|meets the requirements"
-msgstr ""
+msgstr "задовольняє вимогам"
 
 msgid "ClusterIntegration|properly configured"
-msgstr ""
+msgstr "правильно налаштований"
 
 msgid "Comments"
 msgstr "Коментарі"
@@ -626,25 +626,25 @@ msgid "ContainerRegistry|Created"
 msgstr "Створений"
 
 msgid "ContainerRegistry|First log in to GitLab&rsquo;s Container Registry using your GitLab username and password. If you have %{link_2fa} you need to use a %{link_token}:"
-msgstr ""
+msgstr "Спочатку увійдіть до реєстру контейнерів GitLab, використовуючи логін та пароль. Якщо у вас %{link_2fa}, треба використовувати %{link_token}:"
 
 msgid "ContainerRegistry|GitLab supports up to 3 levels of image names. The following examples of images are valid for your project:"
-msgstr ""
+msgstr "GitLab підтримує до 3 рівнів імен образів. Наступні приклади образів є правильними для вашого проекту:"
 
 msgid "ContainerRegistry|How to use the Container Registry"
-msgstr ""
+msgstr "Як використовувати Реєстр Контейнерів"
 
 msgid "ContainerRegistry|Learn more about"
 msgstr "Дізнайтеся більше про"
 
 msgid "ContainerRegistry|No tags in Container Registry for this container image."
-msgstr ""
+msgstr "В Реєстрі Контейнерів немає тегів для цього образу."
 
 msgid "ContainerRegistry|Once you log in, you&rsquo;re free to create and upload a container image using the common %{build} and %{push} commands"
-msgstr ""
+msgstr "Після входу ви можете створювати та завантажувати образи контейнерів, використовуючи звичайні %{build} та %{push} команди"
 
 msgid "ContainerRegistry|Remove repository"
-msgstr ""
+msgstr "Видалити репозиторій"
 
 msgid "ContainerRegistry|Remove tag"
 msgstr "Видалити тег"
@@ -659,10 +659,10 @@ msgid "ContainerRegistry|Tag ID"
 msgstr "Тег ID"
 
 msgid "ContainerRegistry|Use different image names"
-msgstr ""
+msgstr "Використовуйте різні імена образів"
 
 msgid "ContainerRegistry|With the Docker Container Registry integrated into GitLab, every project can have its own space to store its Docker images."
-msgstr ""
+msgstr "За допомогою вбудованого в GitLab реєстру Docker контейнерів кожен проект може мати власне місце для зберігання Docker образів."
 
 msgid "Contribution guide"
 msgstr "Керівництво контриб’юторів"
@@ -923,7 +923,7 @@ msgid "GoToYourFork|Fork"
 msgstr "Форк"
 
 msgid "Google authentication is not %{link_to_documentation}. Ask your GitLab administrator if you want to use this service."
-msgstr ""
+msgstr "Аутентифікація Google не %{link_to_documentation}. Попросіть свого адміністратора GitLab, якщо ви хочете скористатися цим сервісом."
 
 msgid "GroupSettings|Prevent sharing a project within %{group} with other groups"
 msgstr "Заборонити спільний доступ до проекту в рамках %{group} з іншими групами"
@@ -1151,7 +1151,7 @@ msgid "New tag"
 msgstr "Новий тег"
 
 msgid "No container images stored for this project. Add one by following the instructions above."
-msgstr ""
+msgstr "В цьому проекті немає жодного образа контейнера. Додайте його за інструкціями вище."
 
 msgid "No repository"
 msgstr "Немає репозеторія"
@@ -1592,10 +1592,10 @@ msgid "Snippets"
 msgstr "Фрагменти"
 
 msgid "Something went wrong on our end."
-msgstr ""
+msgstr "Щось пішло не так з нашого боку"
 
 msgid "Something went wrong while fetching the projects."
-msgstr ""
+msgstr "Щось пішло не так під час отримання проектів"
 
 msgid "Something went wrong while fetching the registry list."
 msgstr ""
