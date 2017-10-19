@@ -316,7 +316,7 @@ export default {
             </template>
             <template v-else>
               <span class="bold">
-                The pipeline for this merge request has not succeeded yet
+                Merge is not allowed yet
               </span>
             </template>
           </div>

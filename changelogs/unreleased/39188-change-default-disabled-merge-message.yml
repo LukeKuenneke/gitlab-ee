@@ -1,0 +1,6 @@
+---
+title: Change default disabled merge request widget message to "Merge is not allowed"
+  yet
+merge_request:
+author:
+type: changed
