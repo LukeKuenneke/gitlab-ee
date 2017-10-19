@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-19 18:49-0400\n"
+"PO-Revision-Date: 2017-10-19 19:10-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -200,7 +200,7 @@ msgid "BillingPlans|Learn more about each plan by reading our %{faq_link}."
 msgstr "Узнайте больше о каждом тарифном плане прочитав наш %{faq_link}."
 
 msgid "BillingPlans|Manage plan"
-msgstr ""
+msgstr "Управление тарифным планом"
 
 msgid "BillingPlans|Please contact %{customer_support_link} in that case."
 msgstr "Пожалуйста, в этом случае обратитесь в %{customer_support_link}."
@@ -209,10 +209,10 @@ msgid "BillingPlans|See all %{plan_name} features"
 msgstr "Посмотреть возможности %{plan_name} полностью"
 
 msgid "BillingPlans|This group uses the plan associated with its parent group."
-msgstr ""
+msgstr "Эта группа использует тарифный план связанный с родительской группой."
 
 msgid "BillingPlans|To manage the plan for this group, visit the billing section of %{parent_billing_page_link}."
-msgstr ""
+msgstr "Для управления тарифным планом этой группы посетите раздел тарификации %{parent_billing_page_link}."
 
 msgid "BillingPlans|Upgrade"
 msgstr ""
@@ -632,7 +632,7 @@ msgid "ContainerRegistry|GitLab supports up to 3 levels of image names. The foll
 msgstr ""
 
 msgid "ContainerRegistry|How to use the Container Registry"
-msgstr ""
+msgstr "Как использовать Реестр Контейнеров"
 
 msgid "ContainerRegistry|Learn more about"
 msgstr ""
@@ -644,19 +644,19 @@ msgid "ContainerRegistry|Once you log in, you&rsquo;re free to create and upload
 msgstr ""
 
 msgid "ContainerRegistry|Remove repository"
-msgstr ""
+msgstr "Удалить репозиторий"
 
 msgid "ContainerRegistry|Remove tag"
-msgstr ""
+msgstr "Удалить тег"
 
 msgid "ContainerRegistry|Size"
-msgstr ""
+msgstr "Размер"
 
 msgid "ContainerRegistry|Tag"
-msgstr ""
+msgstr "Тег"
 
 msgid "ContainerRegistry|Tag ID"
-msgstr ""
+msgstr "Идентификатор Тега"
 
 msgid "ContainerRegistry|Use different image names"
 msgstr ""
@@ -1679,7 +1679,7 @@ msgid "SortOptions|Oldest sign in"
 msgstr "Старейшие из заходивших"
 
 msgid "SortOptions|Oldest updated"
-msgstr ""
+msgstr "Старейших из обновленных"
 
 msgid "SortOptions|Popularity"
 msgstr "Популяронсть"
@@ -1712,7 +1712,7 @@ msgid "StarProject|Star"
 msgstr "Отметить"
 
 msgid "Starred projects"
-msgstr ""
+msgstr "Отмеченные проекты"
 
 msgid "Start a %{new_merge_request} with these changes"
 msgstr "Начать %{new_merge_request} с этих изменений"
