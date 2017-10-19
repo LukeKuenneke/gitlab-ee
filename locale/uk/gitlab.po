@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-19 13:50-0400\n"
+"PO-Revision-Date: 2017-10-19 14:12-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -461,19 +461,19 @@ msgid "ClusterIntegration|A %{link_to_container_project} must have been created 
 msgstr "%{link_to_container_project} напевно було створено під цим обліковим записом"
 
 msgid "ClusterIntegration|Cluster integration"
-msgstr "Кластерна інтеграція"
+msgstr "Інтеграція із кластером"
 
 msgid "ClusterIntegration|Cluster integration is disabled for this project."
-msgstr "Кластерна інтеграція вимкнена для цього проекту."
+msgstr "Інтеграція із кластером вимкнена для цього проекту."
 
 msgid "ClusterIntegration|Cluster integration is enabled for this project."
-msgstr ""
+msgstr "Інтеграція із кластером увімкнена для цього проекту."
 
 msgid "ClusterIntegration|Cluster integration is enabled for this project. Disabling this integration will not affect your cluster, it will only temporarily turn off GitLab's connection to it."
-msgstr ""
+msgstr "Для цього проекту увімкнена інтеграція із кластером. Викнення інтеграції не вплине на кластер, але з'єднання GitLab з ним буде тимчасово розірване."
 
 msgid "ClusterIntegration|Cluster is being created on Google Container Engine..."
-msgstr ""
+msgstr "Створюється кластер в Google Container Engine..."
 
 msgid "ClusterIntegration|Cluster name"
 msgstr "Ім'я кластера"
@@ -488,67 +488,67 @@ msgid "ClusterIntegration|Create cluster"
 msgstr "Створити кластер"
 
 msgid "ClusterIntegration|Create new cluster on Google Container Engine"
-msgstr ""
+msgstr "Створити новий кластер в Google Container Engine"
 
 msgid "ClusterIntegration|Enable cluster integration"
-msgstr ""
+msgstr "Увімкнути інтеграцію із кластерами"
 
 msgid "ClusterIntegration|Google Cloud Platform project ID"
-msgstr ""
+msgstr "Ідентифікатор проекту в Google Cloud Platform"
 
 msgid "ClusterIntegration|Google Container Engine"
-msgstr ""
+msgstr "Google Container Engine"
 
 msgid "ClusterIntegration|Google Container Engine project"
-msgstr ""
+msgstr "Проект Google Container Engine"
 
 msgid "ClusterIntegration|Google Container Engine"
-msgstr ""
+msgstr "Google Container Engine"
 
 msgid "ClusterIntegration|Learn more about %{link_to_documentation}"
-msgstr ""
+msgstr "Дізнайтеся більше про %{link_to_documentation}"
 
 msgid "ClusterIntegration|See machine types"
-msgstr ""
+msgstr "Переглянути типи машин"
 
 msgid "ClusterIntegration|Make sure your account %{link_to_requirements} to create clusters"
-msgstr ""
+msgstr "Переконайтеся, що ваш обліковий запис %{link_to_requirements} для створення кластерів"
 
 msgid "ClusterIntegration|Manage your cluster by visiting %{link_gke}"
-msgstr ""
+msgstr "Для керування своїм кластером перейдіть на %{link_gke}"
 
 msgid "ClusterIntegration|Number of nodes"
-msgstr ""
+msgstr "Кількість вузлів"
 
 msgid "ClusterIntegration|Project namespace (optional, unique)"
-msgstr ""
+msgstr "Namespace проекту (не обов’язковий, унікальний)"
 
 msgid "ClusterIntegration|Remove cluster integration"
-msgstr ""
+msgstr "Видалити інтеграцію з кластером"
 
 msgid "ClusterIntegration|Remove integration"
-msgstr ""
+msgstr "Видалити інтеграцію"
 
 msgid "ClusterIntegration|Removing cluster integration will remove the cluster configuration you have added to this project. It will not delete your project."
-msgstr ""
+msgstr "При видаленні інтеграції з кластером буде видалена конфігурація кластера, яку ви додали в цей проект. Дана дія не видалить сам проект."
 
 msgid "ClusterIntegration|Save changes"
 msgstr "Зберегти зміни"
 
 msgid "ClusterIntegration|See your projects"
-msgstr ""
+msgstr "Переглянути ваші проекти"
 
 msgid "ClusterIntegration|See zones"
-msgstr ""
+msgstr "Переглянути зони"
 
 msgid "ClusterIntegration|Something went wrong on our end."
-msgstr ""
+msgstr "Щось пішло не так з нашого боку."
 
 msgid "ClusterIntegration|Something went wrong while creating your cluster on Google Container Engine."
-msgstr ""
+msgstr "Щось пішло не так при створенні вашого кластеру в Google Container Engine."
 
 msgid "ClusterIntegration|Please make sure that your Google account meets the following requirements:"
-msgstr ""
+msgstr "Будь-ласка впевніться, що ваш Google-аккаунт задовольняє наступним вимогам:"
 
 msgid "ClusterIntegration|Toggle Cluster"
 msgstr ""
