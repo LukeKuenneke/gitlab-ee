@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-19 22:08-0400\n"
+"PO-Revision-Date: 2017-10-20 05:14-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -629,19 +629,19 @@ msgid "ContainerRegistry|First log in to GitLab&rsquo;s Container Registry using
 msgstr "Сначала авторизуйтесь в реестре контейнеров GitLab, используя свои имя пользователя и пароль. Если у вас есть %{link_2fa}, вам необходимо использовать %{link_token}:"
 
 msgid "ContainerRegistry|GitLab supports up to 3 levels of image names. The following examples of images are valid for your project:"
-msgstr ""
+msgstr "GitLab поддерживает до трех уровней имён образов. Следующие примеры имён образов подходят для вашего проекта:"
 
 msgid "ContainerRegistry|How to use the Container Registry"
 msgstr "Как использовать Реестр Контейнеров"
 
 msgid "ContainerRegistry|Learn more about"
-msgstr ""
+msgstr "Узнайте больше"
 
 msgid "ContainerRegistry|No tags in Container Registry for this container image."
-msgstr ""
+msgstr "В реестре контейнеров нет тегов для этого образа."
 
 msgid "ContainerRegistry|Once you log in, you&rsquo;re free to create and upload a container image using the common %{build} and %{push} commands"
-msgstr ""
+msgstr "После того, как вы вошли в систему, вы можете создать или загрузить образ контейнера, используя общие команды %{build} и %{push}"
 
 msgid "ContainerRegistry|Remove repository"
 msgstr "Удалить репозиторий"
@@ -659,10 +659,10 @@ msgid "ContainerRegistry|Tag ID"
 msgstr "Идентификатор Тега"
 
 msgid "ContainerRegistry|Use different image names"
-msgstr ""
+msgstr "Использовать различные имена образов"
 
 msgid "ContainerRegistry|With the Docker Container Registry integrated into GitLab, every project can have its own space to store its Docker images."
-msgstr ""
+msgstr "Когда реестр контейнеров Docker интегрирован с GitLab, каждый проект может иметь свое собственное пространство для хранения его Docker образов."
 
 msgid "Contribution guide"
 msgstr "Руководство участника"
@@ -875,7 +875,7 @@ msgid "FirstPushedBy|First"
 msgstr "Первый"
 
 msgid "FirstPushedBy|pushed by"
-msgstr ""
+msgstr "отправлено автором"
 
 msgid "Fork"
 msgid_plural "Forks"
@@ -905,10 +905,10 @@ msgid "Geo Nodes"
 msgstr "Географические Узлы"
 
 msgid "Geo|Groups to replicate"
-msgstr ""
+msgstr "Группы для репликации"
 
 msgid "Geo|Select groups to replicate."
-msgstr ""
+msgstr "Выберите группы для репликации."
 
 msgid "Git storage health information has been reset"
 msgstr "Информация о стабильности Git хранилища была сброшена"
@@ -929,7 +929,7 @@ msgid "GroupSettings|Prevent sharing a project within %{group} with other groups
 msgstr "Запретить публикацию проектов из %{group} в других группах"
 
 msgid "GroupSettings|Share with group lock"
-msgstr "Опубликовать с блокировкой группы"
+msgstr "Опубликовать с групповой блокировкой"
 
 msgid "GroupSettings|This setting is applied on %{ancestor_group} and has been overridden on this subgroup."
 msgstr "Эта настройка применена в %{ancestor_group} и была переопределена в этой подгруппе."
@@ -938,16 +938,16 @@ msgid "GroupSettings|This setting is applied on %{ancestor_group}. To share proj
 msgstr "Эта настройка применена в %{ancestor_group}. Чтобы поделиться проектами из этой группы с другими группами, запросите у владельца переопределить эту настройку или %{remove_ancestor_share_with_group_lock}."
 
 msgid "GroupSettings|This setting is applied on %{ancestor_group}. You can override the setting or %{remove_ancestor_share_with_group_lock}."
-msgstr ""
+msgstr "Эта настройка применена в %{ancestor_group}. Вы можете переопределить эту настройку или %{remove_ancestor_share_with_group_lock}."
 
 msgid "GroupSettings|This setting will be applied to all subgroups unless overridden by a group owner. Groups that already have access to the project will continue to have access unless removed manually."
-msgstr ""
+msgstr "Эта настройка будет применена для всех подгрупп если не будет переопределена владельцем группы. Группы которые уже имеют доступ к проекту, будут иметь его и дальше пока не будут удалены вручную."
 
 msgid "GroupSettings|cannot be disabled when the parent group \"Share with group lock\" is enabled, except by the owner of the parent group"
-msgstr ""
+msgstr "не может быть отменена до тех пор пока группа \"Поделиться с групповой блокировкой\" включена, за исключением владельца группы родителя"
 
 msgid "GroupSettings|remove the share with group lock from %{ancestor_group_name}"
-msgstr ""
+msgstr "удалить возможность поделиться с групповой блокировкой из %{ancestor_group_name}"
 
 msgid "Health Check"
 msgstr "Проверка работоспособности"
@@ -1160,7 +1160,7 @@ msgid "No schedules"
 msgstr "Нет расписаний"
 
 msgid "None"
-msgstr ""
+msgstr "Пусто"
 
 msgid "Not available"
 msgstr "Недоступно"
@@ -1430,13 +1430,13 @@ msgid "ProjectSettings|Only signed commits can be pushed to this repository."
 msgstr "Только подписанные коммиты могут быть помещены в этот репозиторий."
 
 msgid "ProjectSettings|This setting is applied on the server level and can be overridden by an admin."
-msgstr ""
+msgstr "Эта настройка применяется на уровне сервера и может быть переопределена администратором."
 
 msgid "ProjectSettings|This setting is applied on the server level but has been overridden for this project."
-msgstr ""
+msgstr "Эта настройка применяется на уровне сервера, но была переопределена для этого проекта."
 
 msgid "ProjectSettings|This setting will be applied to all projects unless overridden by an admin."
-msgstr ""
+msgstr "Эта настройка будет применена для всех проектов, если иное поведение не переопределено администратором."
 
 msgid "ProjectsDropdown|Frequently visited"
 msgstr "Часто посещаемые"
@@ -2060,7 +2060,7 @@ msgid "WikiClone|Install Gollum"
 msgstr "Установка Gollum"
 
 msgid "WikiClone|It is recommended to install %{markdown} so that GFM features render locally:"
-msgstr ""
+msgstr "Рекомендуется установить %{markdown}, чтобы возможности GFM отображались локально:"
 
 msgid "WikiClone|Start Gollum and edit locally"
 msgstr ""
@@ -2069,7 +2069,7 @@ msgid "WikiEmptyPageError|You are not allowed to create wiki pages"
 msgstr ""
 
 msgid "WikiHistoricalPage|This is an old version of this page."
-msgstr ""
+msgstr "Это устаревшая версия этой страницы."
 
 msgid "WikiHistoricalPage|You can view the %{most_recent_link} or browse the %{history_link}."
 msgstr ""
