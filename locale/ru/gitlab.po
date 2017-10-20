@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-20 05:14-0400\n"
+"PO-Revision-Date: 2017-10-20 05:41-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -392,10 +392,10 @@ msgid "Cherry-pick this commit"
 msgstr "Подобрать в этом коммите"
 
 msgid "Cherry-pick this merge request"
-msgstr "Побрать в этом запросе на слияние"
+msgstr "Подобрать этот запрос на слияние"
 
 msgid "Choose which groups you wish to replicate to this secondary node. Leave blank to replicate all."
-msgstr ""
+msgstr "Выберите группы, которые хотите скопировать на вторичный узел. Оставьте пустым для копирование всего."
 
 msgid "CiStatusLabel|canceled"
 msgstr "отменено"
@@ -782,7 +782,7 @@ msgid "Discard changes"
 msgstr "Отменить изменения"
 
 msgid "Dismiss Merge Request promotion"
-msgstr ""
+msgstr "Отключить анонсы для Запросов на Слияние"
 
 msgid "Don't show again"
 msgstr "Не показывать снова"
@@ -890,7 +890,7 @@ msgid "ForkedFromProjectPath|Forked from %{project_name} (deleted)"
 msgstr "Ответвление от %{project_name} (удалено)"
 
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 msgid "From issue creation until deploy to production"
 msgstr "От создания обсуждения до развертывания реализации в рабочей среде"
@@ -923,7 +923,7 @@ msgid "GoToYourFork|Fork"
 msgstr "Ответвление"
 
 msgid "Google authentication is not %{link_to_documentation}. Ask your GitLab administrator if you want to use this service."
-msgstr ""
+msgstr "Аутентификация Google не %{link_to_documentation}. Попросите своего администратора GitLab, если вы хотите воспользоваться этим сервисом."
 
 msgid "GroupSettings|Prevent sharing a project within %{group} with other groups"
 msgstr "Запретить публикацию проектов из %{group} в других группах"
@@ -1145,13 +1145,13 @@ msgid "New schedule"
 msgstr "Новое расписание"
 
 msgid "New snippet"
-msgstr ""
+msgstr "Новый фрагмент"
 
 msgid "New tag"
 msgstr "Новый тег"
 
 msgid "No container images stored for this project. Add one by following the instructions above."
-msgstr ""
+msgstr "Нет образов контейнеров для этого проекта. Добавьте образ, следуя инструкциям выше."
 
 msgid "No repository"
 msgstr "Нет репозитория"
@@ -1181,7 +1181,7 @@ msgid "NotificationEvent|Failed pipeline"
 msgstr "Неудача в сборочной линии"
 
 msgid "NotificationEvent|Merge merge request"
-msgstr ""
+msgstr "Влит запрос на слияние"
 
 msgid "NotificationEvent|New issue"
 msgstr "Новое обсуждение"
@@ -1196,7 +1196,7 @@ msgid "NotificationEvent|Reassign issue"
 msgstr "Переназначить обсуждение"
 
 msgid "NotificationEvent|Reassign merge request"
-msgstr "Переназначить запрос на слияние"
+msgstr "Переназначен запрос на слияние"
 
 msgid "NotificationEvent|Reopen issue"
 msgstr "Переоткрыть обсуждение"
@@ -1493,10 +1493,10 @@ msgid "Related Jobs"
 msgstr "Связанные задачи"
 
 msgid "Related Merge Requests"
-msgstr "Связанные запросы на слияние"
+msgstr "Связанные Запросы на Слияние"
 
 msgid "Related Merged Requests"
-msgstr "Связанные объединенные запросы"
+msgstr "Связанные Влитые Запросы"
 
 msgid "Remind later"
 msgstr "Напомнить позже"
@@ -1724,7 +1724,7 @@ msgid "Switch branch/tag"
 msgstr "Переключить ветка/тег"
 
 msgid "System Hooks"
-msgstr ""
+msgstr "Системные Обработчики"
 
 msgid "Tag"
 msgid_plural "Tags"
@@ -1748,7 +1748,7 @@ msgid "The Advanced Global Search in GitLab is a powerful search service that sa
 msgstr "Расширенный глобальный поиск в GitLab - это серьезный инструмент который сокращает ваше время. Вместо создания дублирующего кода и траты времени, вы можете искать код внутри других команд, который поможет вам в вашем проекте."
 
 msgid "The coding stage shows the time from the first commit to creating the merge request. The data will automatically be added here once you create your first merge request."
-msgstr "На этапе написания кода показывает время первого коммита до создания запроса на слияние. Данные автоматически добавятся после того, как вы создать свой первый запрос на слияние."
+msgstr "Этап написания кода показывает время с первого коммита до создания запроса на слияние. Данные автоматически добавятся сюда после того, как вы создать свой первый запрос на слияние."
 
 msgid "The collection of events added to the data gathered for that stage."
 msgstr "Коллекция событий добавленных в данные собранные для этого этапа."
@@ -1802,7 +1802,7 @@ msgid "This is a confidential issue."
 msgstr "Это конфиденциальное обсуждение."
 
 msgid "This is the author's first Merge Request to this project."
-msgstr ""
+msgstr "Это первый Запрос на слияние от автора в этот проект."
 
 msgid "This issue is confidential and locked."
 msgstr "Это обсуждение конфиденциально и заблокировано."
@@ -1814,7 +1814,7 @@ msgid "This means you can not push code until you create an empty repository or 
 msgstr "Это означает, что вы не можете отправить код, пока не создадите пустой репозиторий или не импортируете существующий."
 
 msgid "This merge request is locked."
-msgstr ""
+msgstr "Запрос на слияние заблокирован."
 
 msgid "Time before an issue gets scheduled"
 msgstr "Время до начала попадания обсуждения в планировщик"
@@ -2063,16 +2063,16 @@ msgid "WikiClone|It is recommended to install %{markdown} so that GFM features r
 msgstr "Рекомендуется установить %{markdown}, чтобы возможности GFM отображались локально:"
 
 msgid "WikiClone|Start Gollum and edit locally"
-msgstr ""
+msgstr "Запустите Gollum и редактируете локально"
 
 msgid "WikiEmptyPageError|You are not allowed to create wiki pages"
-msgstr ""
+msgstr "Вы не можете создавать вики-страницы"
 
 msgid "WikiHistoricalPage|This is an old version of this page."
 msgstr "Это устаревшая версия этой страницы."
 
 msgid "WikiHistoricalPage|You can view the %{most_recent_link} or browse the %{history_link}."
-msgstr ""
+msgstr "Вы можете увидеть %{most_recent_link} либо просмотреть %{history_link}."
 
 msgid "WikiHistoricalPage|history"
 msgstr "история"
@@ -2114,7 +2114,7 @@ msgid "WikiPageEdit|Update %{page_title}"
 msgstr "Обновить %{page_title}"
 
 msgid "WikiPage|Page slug"
-msgstr ""
+msgstr "Семантический Url для страницы"
 
 msgid "WikiPage|Write your content or drag files here..."
 msgstr "Напишите ваше содержимое или перетащите сюда файлы..."
@@ -2201,7 +2201,7 @@ msgid "You won't be able to pull or push project code via SSH until you %{add_ss
 msgstr "Вы не сможете получать и отправлять код проекта через SSH пока %{add_ssh_key_link} в ваш профиль."
 
 msgid "Your comment will not be visible to the public."
-msgstr ""
+msgstr "Ваш комментарий не будет виден всем."
 
 msgid "Your name"
 msgstr "Ваше имя"
