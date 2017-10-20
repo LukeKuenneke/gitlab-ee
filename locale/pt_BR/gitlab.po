@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-17 05:37-0400\n"
+"PO-Revision-Date: 2017-10-20 07:10-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -18,13 +18,13 @@ msgstr ""
 
 msgid "%d commit"
 msgid_plural "%d commits"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d commit"
+msgstr[1] "%d commits"
 
 msgid "%d layer"
 msgid_plural "%d layers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d camada"
+msgstr[1] "%d camadas"
 
 msgid "%s additional commit has been omitted to prevent performance issues."
 msgid_plural "%s additional commits have been omitted to prevent performance issues."
@@ -35,10 +35,10 @@ msgid "%{commit_author_link} committed %{commit_timeago}"
 msgstr "%{commit_author_link} fez commit %{commit_timeago}"
 
 msgid "%{number_commits_behind} commits behind %{default_branch}, %{number_commits_ahead} commits ahead"
-msgstr ""
+msgstr "%{number_commits_behind} commits atrás de %{default_branch}, %{number_commits_ahead} commits à frente"
 
 msgid "%{number_of_failures} of %{maximum_failures} failures. GitLab will allow access on the next attempt."
-msgstr ""
+msgstr "%{number_of_failures} de %{maximum_failures} falhas. O GitLab permitirá o acesso na próxima tentativa."
 
 msgid "%{number_of_failures} of %{maximum_failures} failures. GitLab will block access for %{number_of_seconds} seconds."
 msgstr ""
@@ -201,22 +201,22 @@ msgid "BillingPlans|Please contact %{customer_support_link} in that case."
 msgstr ""
 
 msgid "BillingPlans|See all %{plan_name} features"
-msgstr ""
+msgstr "Veja todas as funcionalidades do seu plano %{plan_name}"
 
 msgid "BillingPlans|This group uses the plan associated with its parent group."
-msgstr ""
+msgstr "Esse grupo utiliza o plano associado ao seu grupo pai."
 
 msgid "BillingPlans|To manage the plan for this group, visit the billing section of %{parent_billing_page_link}."
-msgstr ""
+msgstr "Para gerenciar o plano para esse grupo, visite a sessão de cobrança de %{parent_billing_page_link}."
 
 msgid "BillingPlans|Upgrade"
-msgstr ""
+msgstr "Atualizar"
 
 msgid "BillingPlans|You are currently on the %{plan_link} plan."
-msgstr ""
+msgstr "Vocês está utilizando o plano %{plan_link}."
 
 msgid "BillingPlans|frequently asked questions"
-msgstr ""
+msgstr "perguntas frequentes"
 
 msgid "BillingPlans|monthly"
 msgstr ""
