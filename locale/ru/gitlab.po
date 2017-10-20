@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gitlab-ee\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-06 22:39+0200\n"
-"PO-Revision-Date: 2017-10-20 07:10-0400\n"
+"PO-Revision-Date: 2017-10-20 09:19-0400\n"
 "Last-Translator: gitlab <mbartlett+crowdin@gitlab.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -71,7 +71,7 @@ msgid "2FA enabled"
 msgstr "Двухфакторная авторизация включена"
 
 msgid "A collection of graphs regarding Continuous Integration"
-msgstr "Графики относительно непрерывной интеграции (Ci)"
+msgstr "Графики непрерывной интеграции (CI)"
 
 msgid "About auto deploy"
 msgstr "Об автоматическом развёртывании"
@@ -194,7 +194,7 @@ msgid "BillingPlans|Customer Support"
 msgstr "Поддержка Клиентов"
 
 msgid "BillingPlans|Downgrade"
-msgstr ""
+msgstr "Понижение"
 
 msgid "BillingPlans|Learn more about each plan by reading our %{faq_link}."
 msgstr "Узнайте больше о каждом тарифном плане прочитав наш %{faq_link}."
@@ -215,7 +215,7 @@ msgid "BillingPlans|To manage the plan for this group, visit the billing section
 msgstr "Для управления тарифным планом этой группы посетите раздел тарификации %{parent_billing_page_link}."
 
 msgid "BillingPlans|Upgrade"
-msgstr ""
+msgstr "Повышение"
 
 msgid "BillingPlans|You are currently on the %{plan_link} plan."
 msgstr "В настоящее время вы используете тарифный план %{plan_link}."
@@ -602,7 +602,7 @@ msgid "CommitBoxTitle|Commit"
 msgstr "Коммит"
 
 msgid "CommitMessage|Add %{file_name}"
-msgstr "Добавлен %{file_name}"
+msgstr "Добавить %{file_name}"
 
 msgid "Commits"
 msgstr "Коммиты"
@@ -713,7 +713,7 @@ msgid "Cron syntax"
 msgstr "Синтаксис Cron"
 
 msgid "Custom notification events"
-msgstr " Настраиваемые уведомления о событиях"
+msgstr "События настраиваемых уведомлений"
 
 msgid "Custom notification levels are the same as participating levels. With custom notification levels you will also receive notifications for select events. To find out more, check out %{notification_link}."
 msgstr "Настраиваемые уровни уведомлений аналогичны уровню уведомлений в соответствии с участием. С настраиваемыми уровнями уведомлений вы также будете получать уведомления о выбранных событиях. Чтобы узнать больше, посмотрите %{notification_link}."
@@ -848,7 +848,7 @@ msgid "Every month (on the 1st at 4:00am)"
 msgstr "Ежемесячно (каждое 1-е число в 4:00)"
 
 msgid "Every week (Sundays at 4:00am)"
-msgstr "Еженедельно (по воскресениями в 4:00)"
+msgstr "Еженедельно (по воскресениям в 4:00)"
 
 msgid "Explore projects"
 msgstr "Обзор проектов"
@@ -1262,7 +1262,7 @@ msgid "Password"
 msgstr "Пароль"
 
 msgid "People without permission will never get a notification and won\\'t be able to comment."
-msgstr ""
+msgstr "Люди без разрешений не получат уведомление и не смогут комментировать."
 
 msgid "Pipeline"
 msgstr "Сборочная линия"
@@ -1379,7 +1379,7 @@ msgid "Project '%{project_name}' was successfully updated."
 msgstr "Проект '%{project_name}' успешно обновлен."
 
 msgid "Project '%{project_name}' will be deleted."
-msgstr "Проект '%{project_name}' удален."
+msgstr "Проект '%{project_name}' будет удален."
 
 msgid "Project access must be granted explicitly to each user."
 msgstr "Доступ к проекту должен предоставляться явно каждому пользователю."
@@ -1766,7 +1766,7 @@ msgid "The pipelines schedule runs pipelines in the future, repeatedly, for spec
 msgstr "Расписание сборочных линий регулярно запускает сборочные линии для определенных ветвей или тегов. Запланированные сборочные линии наследуют ограничения на доступ к проекту на основе связанного с ними пользователя."
 
 msgid "The planning stage shows the time from the previous step to pushing your first commit. This time will be added automatically once you push your first commit."
-msgstr "На этапе планирования показывает время от предыдущего шага до проталкивания первого коммита. Добавляется автоматически, как только проталкиваете свой первый коммит."
+msgstr "Этап планирования показывает время от предыдущего шага до отправки первого коммита. Добавляется автоматически, как только отправите свой первый коммит."
 
 msgid "The production stage shows the total time it takes between creating an issue and deploying the code to production. The data will be automatically added once you have completed the full idea to production cycle."
 msgstr "Производственный этап показывает общее время между созданием обсуждения и развертыванием кода в продуктивной среде. Данные будут автоматически добавлены после полного завершения идеи."
@@ -1973,7 +1973,7 @@ msgid "Total test time for all commits/merges"
 msgstr "Общее время тестирования фиксаций/слияний"
 
 msgid "Track activity with Contribution Analytics."
-msgstr ""
+msgstr "Отслеживать активность с помощью Аналитики Участников."
 
 msgid "Unlock"
 msgstr "Разблокировать"
@@ -1985,13 +1985,13 @@ msgid "Unstar"
 msgstr "Снять отметку"
 
 msgid "Upgrade your plan to activate Advanced Global Search."
-msgstr ""
+msgstr "Повысьте ваш тарифный план, чтобы активировать Улучшенный Глобальный Поиск."
 
 msgid "Upgrade your plan to activate Contribution Analytics."
-msgstr ""
+msgstr "Повысьте ваш тарифный план, чтобы активировать Аналитики Участников."
 
 msgid "Upgrade your plan to activate Group Webhooks."
-msgstr ""
+msgstr "Повысьте ваш тарифный план, чтобы активировать Групповые Веб-Обработчики."
 
 msgid "Upgrade your plan to activate Issue weight."
 msgstr "Обновите ваш тарифный план для появления веса у обсуждений."
@@ -2150,7 +2150,7 @@ msgid "Wiki|Wiki Pages"
 msgstr "Вики Страницы"
 
 msgid "With contribution analytics you can have an overview for the activity of issues, merge requests and push events of your organization and its members."
-msgstr ""
+msgstr "С аналитикой участников вы можете изучать активность в обсуждениях, запросах на слияние и событий отправки кода для вашей организации и её участников."
 
 msgid "Withdraw Access Request"
 msgstr "Отменить запрос доступа"
