@@ -228,7 +228,6 @@ the clocks must be synchronized to within 60 seconds of each other.
 1. Configure the [PostgreSQL FDW][FDW] connection and credentials:
 
     ```bash
-    $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE SERVER gitlab_secondary FOREIGN DATA WRAPPER postgres_fdw OPTIONS (host '5.6.7.8', port '5432', dbname 'gitlabhq_production');"
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "CREATE USER MAPPING FOR gitlab_geo SERVER gitlab_secondary OPTIONS (user 'gitlab', password 'mydatabasepassword');"
     $ sudo -u postgres psql -d gitlabhq_geo_production -c "GRANT USAGE ON FOREIGN SERVER gitlab_secondary TO gitlab_geo;"
     ```
