@@ -27,7 +27,7 @@
         default: '',
       },
 
-      addToSlackLinkProfileSlackPath: {
+      slackLinkProfileSlackPath: {
         type: String,
         required: true,
         default: '',
@@ -37,7 +37,7 @@
     data() {
       return {
         popupOpen: false,
-        selectedProject: this.projects.length ? this.projects[0] : {},
+        selectedProjectId: this.projects.length ? this.projects[0].id : 0,
       };
     },
 
@@ -50,12 +50,12 @@
         return gl.utils.spriteIcon('slack-logo');
       },
 
-      horizontalArrowsSvg() {
-        return gl.utils.spriteIcon('horizontal-arrows');
+      doubleHeadedArrowSvg() {
+        return gl.utils.spriteIcon('double-headed-arrow');
       },
 
-      rightArrowSvg() {
-        return gl.utils.spriteIcon('right-arrow');
+      arrowRightSvg() {
+        return gl.utils.spriteIcon('arrow-right');
       },
 
       hasProjects() {
@@ -70,23 +70,21 @@
 
       addToSlack() {
         $.ajax({
-          url: this.addToSlackLinkProfileSlackPath,
+          url: this.slackLinkProfileSlackPath,
           data: {
-            projectId: this.selectedProjectId,
+            project_id: this.selectedProjectId,
           },
           dataType: 'json',
         })
-        .done((response) => {
-          console.log('response', response);
-        })
-        .fail(Flash('Unable to build slack link.'));
+        .done(response => window.location.assign(response.add_to_slack_link))
+        .fail(() => Flash('Unable to build slack link.'));
       },
     },
   };
 </script>
 
 <template>
-  <div>
+  <div class="add-gitlab-slack-application">
     <div class="title">
       <h1>GitLab for Slack</h1>
       <p>Track your GitLab projects with GitLab for Slack.</p>
@@ -94,32 +92,32 @@
 
     <div class="logos">
       <img v-once :src="gitlabLogoSvg">
-      <div v-once v-html="horizontalArrowsSvg"></div>
+      <div v-once v-html="doubleHeadedArrowSvg"></div>
       <img v-once :src="slackLogoSvg">
     </div>
 
-    <button type="button" @click="togglePopup">Add GitLab to Slack</button>
+    <button type="button" class="btn btn-red popup-button" @click="togglePopup">Add GitLab to Slack</button>
 
     <div class="popup" v-if="popupOpen">
-      <div v-if="isSignedIn && hasProjects">
-        <p>Select GitLab project to link with your Slack team</p>
+      <div class="select-container" v-if="isSignedIn && hasProjects">
+        <strong>Select GitLab project to link with your Slack team</strong>
 
-        <select v-model="selectedProject">
-          <option v-for="project in projects" :key="project.id" :value="project">{{ project.name }}</option>
+        <select class="project-select" v-model="selectedProjectId">
+          <option v-for="project in projects" :key="project.id" :value="project.id">{{ project.name }}</option>
         </select>
 
-        <button type="button" @click="addToSlack">
+        <button type="button" class="add-to-slack-button btn btn-red" @click="addToSlack">
           Add to Slack
         </button>
       </div>
 
-      <p v-else-if="isSignedIn && !hasProjects">
+      <span class="text" v-else-if="isSignedIn && !hasProjects">
         You don't have any projects available.
-      </p>
+      </span>
 
-      <p v-else>
+      <span class="text" v-else>
         You have to <a v-once :href="signInPath">log in</a>
-      </p>
+      </span>
     </div>
 
     <img class="gif" v-once :src="gitlabForSlackGif">
@@ -129,7 +127,7 @@
 
       <div class="well">
         <code>/project-name issue show &lt;id&gt;</code>
-        <div v-once v-html="rightArrowSvg"></div>
+        <div v-once v-html="arrowRightSvg"></div>
         Shows the issue with id &lt;id&gt;
       </div>
 

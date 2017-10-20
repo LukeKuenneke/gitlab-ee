@@ -1,4 +1,6 @@
 class Profiles::SlacksController < Profiles::ApplicationController
+  include ServicesHelper
+
   skip_before_action :authenticate_user!
 
   layout 'application'
@@ -10,12 +12,11 @@ class Profiles::SlacksController < Profiles::ApplicationController
   end
 
   def slack_link
-    p 'HELLO LUUKE'
-    p params[:project_id]
+    project = disabled_projects.find(params[:project_id])
 
-    project = disabled_projects.find(params[:project_id]) || {}
-
-    render add_to_slack_link: add_to_slack_link(project)
+    respond_to do |format|
+      format.json { render json: { add_to_slack_link: add_to_slack_link(project, current_application_settings.slack_app_id) } }
+    end
   end
 
   private

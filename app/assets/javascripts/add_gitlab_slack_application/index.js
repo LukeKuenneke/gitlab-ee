@@ -18,9 +18,9 @@ function mountAddGitlabSlackApplication() {
     propsData: {
       projects: initialData.projects || [],
       isSignedIn: initialData.is_signed_in,
-      gitlabForSlackGIF: initialData.gitlab_for_slack_gif,
+      gitlabForSlackGif: initialData.gitlab_for_slack_gif,
       signInPath: initialData.sign_in_path,
-      addToSlackLinkProfileSlackPath: initialData.add_to_slack_link_profile_slack_path,
+      slackLinkProfileSlackPath: initialData.slack_link_profile_slack_path,
     },
   }).$mount(el);
 }
